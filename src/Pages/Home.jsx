@@ -7,16 +7,20 @@ import Overview from "../Components/Overview";
 import { SideBar } from "../Components/SideBar";
 
 const Home = () => {
-	const [isLargerThanMd] = useMediaQuery("(min-width: 768px)");
-	console.log(isLargerThanMd)
-	const [showOverView, setShowOverView] = useState(isLargerThanMd );
+	const [isLargerThan960] = useMediaQuery("(min-width: 960px)");
+
+	const [showOverView, setShowOverView] = useState(isLargerThan960);
+
+	useEffect(() => {
+		setShowOverView(isLargerThan960);
+	}, [isLargerThan960]);
 
 	const handleVisibility = () => {
 		setShowOverView(!showOverView);
 	};
 
 	return (
-		<Flex justifyContent={"space-between"} pr="20px" h="100vh">
+		<Flex justifyContent="space-between" pr="20px" h="100vh">
 			<SideBar />
 			<Box
 				w={{ base: "100%", md: "83%", lg: "88%" }}
