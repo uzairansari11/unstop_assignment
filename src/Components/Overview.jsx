@@ -1,17 +1,13 @@
-import { Box, Flex, Grid, Text } from "@chakra-ui/react";
-import React from "react";
-import ViewAgendaOutlinedIcon from "@mui/icons-material/ViewAgendaOutlined";
-import PeopleAltOutlinedIcon from "@mui/icons-material/PeopleAltOutlined";
-import LanguageOutlinedIcon from "@mui/icons-material/LanguageOutlined";
+import { Box, Flex, Grid, Image, Text } from "@chakra-ui/react";
 import InsertLinkOutlinedIcon from "@mui/icons-material/InsertLinkOutlined";
+import PeopleAltOutlinedIcon from "@mui/icons-material/PeopleAltOutlined";
+import ViewAgendaOutlinedIcon from "@mui/icons-material/ViewAgendaOutlined";
+import React from "react";
+import earth from "../Assests/earth.svg";
 
 const Overview = () => {
 	return (
-		<Box
-			bgColor="white"
-			p="20px"
-			display={{ base: "none", md: "block", lg: "block" }}
-		>
+		<Box bgColor="white" p="20px">
 			<Text fontSize={"18px"} fontWeight={"500"} textAlign={"left"}>
 				Assessments Overview
 			</Text>
@@ -128,16 +124,7 @@ const Overview = () => {
 						Candidates Source
 					</Text>
 					<Flex mt="15px" gap="10px" alignItems={"center"}>
-						<LanguageOutlinedIcon
-							sx={{
-								color: "#E9407A",
-								backgroundColor: "#FCE8EF",
-								padding: "8px",
-								width: "35px",
-								height: "35px",
-								borderRadius: "6px",
-							}}
-						/>
+						<Image src={earth} atl="earth" />
 						<Flex>
 							<Box
 								alignItems={"center"}

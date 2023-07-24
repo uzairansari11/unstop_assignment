@@ -9,22 +9,21 @@ import {
 	Text,
 	useDisclosure,
 } from "@chakra-ui/react";
-import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import InsertLinkIcon from "@mui/icons-material/InsertLink";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import React from "react";
+import bag from "../Assests/bag.svg";
+import chartbar from "../Assests/bar.svg";
+import filter from "../Assests/filter.svg";
+import search from "../Assests/search.svg";
 import { assessmentData } from "../Data/Assessments";
 import AddItem from "./AddItem";
-import chartbar from "../Assests/bar.svg";
-import search from "../Assests/search.svg";
-import filter from "../Assests/filter.svg";
-import bag from "../Assests/bag.svg";
-const Assessments = () => {
+const Assessments = ({ handleVisibility }) => {
 	const { isOpen, onOpen, onClose } = useDisclosure();
 
 	return (
-		<Box bgColor="white" p="20px">
+		<Box bgColor="white" p="20px" color="#var(--text-100, #1C4980)">
 			<Box display="flex" justifyContent={"space-between"}>
 				<Text fontSize={"18px"} fontWeight={"500"} textAlign={"left"}>
 					My Assessment
@@ -39,7 +38,7 @@ const Assessments = () => {
 				>
 					<Image src={search} alt="search" />
 					<Image src={filter} alt="filter" />
-					<Image src={chartbar} alt="chartbar" />
+					<Image src={chartbar} alt="chartbar" onClick={handleVisibility} />
 				</Box>
 			</Box>
 			<Grid
@@ -69,20 +68,14 @@ const Assessments = () => {
 				</Box>
 				{assessmentData.length &&
 					assessmentData.map((elem) => (
-						<Box p="15px" borderRadius={"15px"} border="1px solid #E3E5E8">
+						<Box
+							p="15px"
+							borderRadius={"15px"}
+							border="1px solid #E3E5E8"
+							color="#var(--text-100, #1C4980)"
+						>
 							<Flex w="100%" justifyContent={"space-between"}>
-								{/* <BusinessCenterIcon
-									sx={{
-										color: "#8670F2",
-										backgroundColor: "#EBE8FD",
-										padding: "8px",
-										width: "40px",
-										height: "40px",
-										borderRadius: "6px",
-									}}
-								/> */}
-
-								<Image src={bag} alt={"bag"}/>
+								<Image src={bag} alt={"bag"} />
 								<MoreVertIcon />
 							</Flex>
 							<Text
@@ -90,6 +83,7 @@ const Assessments = () => {
 								fontSize={"18px"}
 								textAlign={"left"}
 								mt="10px"
+								color="#var(--text-100, #1C4980)"
 							>
 								{elem.title}
 							</Text>
@@ -147,7 +141,7 @@ const Assessments = () => {
 										Share{" "}
 									</Button>
 									<Flex ml="20px" alignItems={"center"}>
-										<AvatarGroup size="sm" spacing="-4">
+										<AvatarGroup size="xs" spacing="-3">
 											{elem.attendees.length &&
 												elem.attendees.map((ele) => (
 													<Avatar name={ele.name} zIndex={ele.id + 1} />

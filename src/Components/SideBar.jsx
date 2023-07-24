@@ -1,9 +1,14 @@
-import { Box, Button, Grid, Text } from "@chakra-ui/react";
-import AnalyticsOutlinedIcon from "@mui/icons-material/AnalyticsOutlined";
-import DashboardOutlinedIcon from "@mui/icons-material/DashboardOutlined";
-import LibraryBooksOutlinedIcon from "@mui/icons-material/LibraryBooksOutlined";
-import NoteAltOutlinedIcon from "@mui/icons-material/NoteAltOutlined";
+/* -------- import parts -------- */
+
+import { Box, Button, Grid, Image, Text } from "@chakra-ui/react";
 import React from "react";
+import assessment from "../Assests/assessment.svg";
+import dashboard from "../Assests/dashboard.svg";
+import mylibrary from "../Assests/mylibrary.svg";
+import roundstatus from "../Assests/roundstatus.svg";
+
+/* -------- import parts -------- */
+
 export const SideBar = () => {
 	return (
 		<Box
@@ -16,24 +21,55 @@ export const SideBar = () => {
 			display={{ base: "none", md: "block", lg: "block" }}
 		>
 			<Grid gap="10px" p="10px 20px " fontSize={"13px"} fontWeight={"500"}>
+				{/* ----- dashboard ------*/}
+
 				<Box p="10px">
-					<DashboardOutlinedIcon fontSize="small" />
+					<Image
+						src={dashboard}
+						alt="dashboard"
+						margin={"auto"}
+						width="25px"
+						height="25px"
+					/>
 					<Text>Dashboard</Text>
 				</Box>
+
+				{/* ----- assessment ------*/}
+
 				<Box
-					p="15px 0px"
+					p="10px 0px"
+					width={"90px"}
 					borderRadius={"10px"}
 					bgColor="#E5F1FC"
 					border="2px solid #4096EC"
-          color={"#4096EC"}
+					color={"#4096EC"}
+					margin={"auto"}
 				>
-					<NoteAltOutlinedIcon fontSize="small" />
+					<Image
+						src={assessment}
+						alt="assessment"
+						margin={"auto"}
+						width="25px"
+						height="25px"
+					/>
 					<Text>Assessment</Text>
 				</Box>
+
+				{/* ----- mylibrary ------*/}
+
 				<Box p="10px">
-					<LibraryBooksOutlinedIcon fontSize="small" />
+					<Image
+						src={mylibrary}
+						alt="mylibrary"
+						margin={"auto"}
+						width="25px"
+						height="25px"
+					/>
 					<Text>My Library</Text>
 				</Box>
+
+				{/* ----- admin ------*/}
+
 				<Box p="15px" borderTop={"1px dotted #E3E5E8"} mt="10px">
 					<Button
 						fontSize={"10px"}
@@ -41,20 +77,29 @@ export const SideBar = () => {
 						h="18px"
 						textAlign={"center"}
 						alignItems={"center"}
-						borderRadius={"7px"}
-						border={"1px solid #DF623A"}
 						display={"block"}
 						fontWeight={"500"}
-						color="#DF623A"
 						p="0px 4px"
-						bgColor={"#FBEBEA"}
 						m={"auto"}
+						border-radius="22px"
+						border="1px solid var(--accent-new-red, #D63500)"
+						background="var(--accent-red-light, #FBEBEA)"
+						color="var(--accent-new-red, #D63500)"
 					>
 						Admin
 					</Button>
 				</Box>
+
+				{/* ----- roundstatus ------*/}
+
 				<Box p="10px">
-					<AnalyticsOutlinedIcon fontSize="small" />
+					<Image
+						src={roundstatus}
+						alt="roundstatus"
+						margin={"auto"}
+						width="25px"
+						height="25px"
+					/>
 					<Text>Round </Text>
 					<Text>Status</Text>
 				</Box>

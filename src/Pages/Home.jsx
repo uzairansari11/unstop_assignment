@@ -1,5 +1,5 @@
-import { Box, Flex } from "@chakra-ui/react";
-import React from "react";
+import { Box, Flex, useMediaQuery } from "@chakra-ui/react";
+import React, { useEffect, useState } from "react";
 import Assessments from "../Components/Assessments";
 import MobNav from "../Components/MobNav";
 import Navbar from "../Components/Navbar";
@@ -7,8 +7,16 @@ import Overview from "../Components/Overview";
 import { SideBar } from "../Components/SideBar";
 
 const Home = () => {
+	const [isLargerThanMd] = useMediaQuery("(min-width: 768px)");
+	console.log(isLargerThanMd)
+	const [showOverView, setShowOverView] = useState(isLargerThanMd );
+
+	const handleVisibility = () => {
+		setShowOverView(!showOverView);
+	};
+
 	return (
-		<Flex justifyContent={"space-between"} pr="20px" h="200vh">
+		<Flex justifyContent={"space-between"} pr="20px" h="100vh">
 			<SideBar />
 			<Box
 				w={{ base: "100%", md: "83%", lg: "88%" }}
@@ -17,8 +25,8 @@ const Home = () => {
 			>
 				<MobNav />
 				<Navbar />
-				<Overview />
-				<Assessments />
+				{showOverView && <Overview />}
+				<Assessments handleVisibility={handleVisibility} />
 			</Box>
 		</Flex>
 	);
